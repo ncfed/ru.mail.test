@@ -19,9 +19,12 @@ public class Authorization {
 		driver.findElement(By.id("mailbox__auth__button")).click();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.findElement(By.className("b-toolbar__item")).click();
-		driver.findElement(By.name("To")).sendKeys(constants.email);
-		driver.findElement(By.name("Subject")).sendKeys("Test");
-		driver.findElement(By.name("send")).click();
+		driver.findElement(By.cssSelector("textarea[class*='js-input compose__labels__input']")).sendKeys(constants.email);
+		driver.findElement(By.name("Subject")).sendKeys("Test letter");
+		driver.switchTo().frame(driver.findElement(By.xpath("//iframe[starts-with(@id,'toolkit')]")));
+		driver.findElement(By.id("tinymce")).sendKeys("Hello, quality assurance world!");
+		driver.switchTo().parentFrame();
+		driver.findElement(By.cssSelector("div[class*='b-toolbar__btn b-toolbar__btn_ b-toolbar__btn_false js-shortcut']")).click();
 	}
 
 }

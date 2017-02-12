@@ -1,7 +1,5 @@
 package ru.mail.test.drivers;
 
-import java.io.File;
-import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
